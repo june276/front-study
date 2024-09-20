@@ -1,4 +1,5 @@
 import boardSchema from "../schemas/boardSchema.js";
+import userSchema from "../schemas/userSchema.js";
 
 const list = async (req, res) => {
 	try{
@@ -22,10 +23,12 @@ const find = async (req, res) => {
 
 const write = async (req, res) => {
 	try{
-		const { title, content } = req.body;
+		const { title, content, author } = req.body;
+		const user = await userSchema.findOne({username: author});
 		const newBoard = await boardSchema.create({
 			title: title,
 			content: content,
+			author: user._id
 		});
 		res.status(201).json({
 			message: "new board created successfully",
