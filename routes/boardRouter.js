@@ -7,6 +7,6 @@ boardRouter.get('/posts', list);
 boardRouter.get('/posts/:id', find);
 boardRouter.post('/create', write);
 boardRouter.put('/update', update);
-boardRouter.delete('/delete', remove);
+boardRouter.delete('/delete/:id', remove);
 
 export default boardRouter;

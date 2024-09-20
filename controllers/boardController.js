@@ -53,9 +53,9 @@ const remove = async (req, res) => {
 
 const update = async (req, res) => {
 	try{
-		const { title, content } = req.body;
+		const {id, title, content } = req.body;
 		const post = await boardSchema.findByIdAndUpdate(
-			req.params.id,
+			id,
 			{ title, content },
 			{ new: true, runValidators: true }
 		);
