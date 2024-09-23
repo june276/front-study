@@ -27,7 +27,7 @@ userSchema.pre('save', async function (next) {
 });
 
 // 사용자 입력 비밀번호와 저장된 비밀번호를 비교하는 메서드
-userSchema.methods.matchPassword = async function (enteredPassword) {
+userSchema.methods.matchPassword = async (enteredPassword) => {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
