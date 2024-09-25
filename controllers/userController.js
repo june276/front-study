@@ -40,7 +40,7 @@ const signUp = async (req, res)=>{
 
   try {
     // 1. 사용자가 이미 존재하는지 확인
-    let user = await userSchema.findOne({ email });
+    let user = await userSchema.findOne({ username });
     if (user) {
       return res.status(400).json({ msg: 'User already exists' });
     }
